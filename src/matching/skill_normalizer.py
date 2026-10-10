@@ -1,43 +1,67 @@
+import re
+
 SKILL_ALIASES = {
+    # Machine Learning
+    "ml": "machine learning",
+    "machine learning": "machine learning",
     "sklearn": "scikit-learn",
     "scikit learn": "scikit-learn",
-    "natural language processing": "nlp",
-    "machine learning": "machine learning",
-    "ml": "machine learning",
-    "deep learning": "deep learning",
+    "scikit-learn": "scikit-learn",
+
+    # Deep Learning
     "dl": "deep learning",
+    "deep learning": "deep learning",
+
+    # NLP
+    "nlp": "natural language processing",
+    "natural language processing": "natural language processing",
+
+    # Artificial Intelligence
+    "ai": "artificial intelligence",
+    "artificial intelligence": "artificial intelligence",
     "generative ai": "generative ai",
     "genai": "generative ai",
-    "artificial intelligence": "ai",
-    "tensorflow": "tensorflow",
+
+    # Frameworks
     "tf": "tensorflow",
+    "tensorflow": "tensorflow",
     "pytorch": "pytorch",
+
+    # Databases
     "postgres": "postgresql",
     "postgres sql": "postgresql",
+    "postgresql": "postgresql",
+
+    # JavaScript ecosystem
     "js": "javascript",
+    "javascript": "javascript",
     "node": "node.js",
+    "node.js": "node.js",
 }
 
 
 def normalize_skill(skill):
-    """
-    Convert a skill/alias into a standard representation.
-    """
+    """Convert a skill or alias to its canonical representation."""
 
-    skill = skill.lower().strip()
+    if not isinstance(skill, str):
+        return ""
+
+    skill = re.sub(r"\s+", " ", skill.lower().strip())
 
     return SKILL_ALIASES.get(skill, skill)
 
 
 def normalize_skills(skills):
-    """
-    Normalize a list of skills.
-    """
+    """Normalize skills and remove duplicates."""
 
-    return list({
+    normalized = {
         normalize_skill(skill)
         for skill in skills
-    })
+    }
+
+    normalized.discard("")
+
+    return sorted(normalized)
 
 
 if __name__ == "__main__":
@@ -45,9 +69,14 @@ if __name__ == "__main__":
     test_skills = [
         "Python",
         "ML",
+        "machine learning",
         "sklearn",
         "NLP",
-        "TensorFlow"
+        "natural language processing",
+        "TensorFlow",
+        "TF",
+        "GenAI",
+        "Postgres",
     ]
 
     print("Original:", test_skills)
