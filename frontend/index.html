@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="on-landing">
+  <header class="topbar"><button class="brand" id="brandBtn">SkillMatch</button></header>
+
+  <main>
+    <!-- 1. LANDING: name + Get started -->
+    <section id="landing" class="screen active">
+      <div class="landing">
+        <h1 class="logo">SkillMatch</h1>
+        <p>Matching resumes and internships by meaning, not keywords.</p>
+        <button class="primary btn-lg" id="startBtn">Get started &rarr;</button>
+      </div>
+    </section>
+
+    <!-- 2. CHOOSE ROLE -->
+    <section id="roles" class="screen">
+      <div class="intro">
+        <h2>Who are you?</h2>
+        <p>Pick one to continue.</p>
+      </div>
+      <div class="role-grid">
+        <button class="role-card" data-role="student">
+          <span class="emoji">&#127891;</span>
+          <h3>I'm a student</h3>
+          <p>Upload your resume and see the best positions and the skills you are missing.</p>
+        </button>
+        <button class="role-card" data-role="recruiter">
+          <span class="emoji">&#128188;</span>
+          <h3>I'm a recruiter</h3>
+          <p>Add a job description and get the best matching candidates.</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. STUDENT -->
+    <section id="student" class="screen">
+      <button class="back" data-go="roles">&larr; Back</button>
+      <div class="panel">
+        <h2>Upload your resume</h2>
+        <label class="drop" id="drop" for="file">
+          <input type="file" id="file" accept=".pdf,.docx,.txt" hidden>
+          <span class="drop-icon">&#8679;</span>
+          <strong id="dropText">Drop your resume here or click to browse</strong>
+          <span>PDF, DOCX or TXT</span>
+        </label>
+        <p class="or">or paste the text</p>
+        <textarea id="resumeText" rows="6" placeholder="Paste your resume text here"></textarea>
+        <button class="primary" id="findBtn">Analyze</button>
+      </div>
+      <div id="studentOut" class="out" aria-live="polite"></div>
+    </section>
+
+    <!-- 4. RECRUITER -->
+    <section id="recruiter" class="screen">
+      <button class="back" data-go="roles">&larr; Back</button>
+      <div class="panel">
+        <h2>Upload the Job Description</h2>
+        <label class="drop" id="jobDrop" for="jobFile">
+          <input type="file" id="jobFile" accept=".pdf,.docx,.txt" hidden>
+          <span class="drop-icon">&#8679;</span>
+          <strong id="jobDropText">Drop the Job Description here or click to browse</strong>
+          <span>PDF, DOCX or TXT</span>
+        </label>
+        <p class="or">or paste the text</p>
+        <textarea id="jobText" rows="8" placeholder="Role, required skills, responsibilities"></textarea>
+        <label class="filter" for="minMatch">Show candidates with a match
+          <select id="minMatch">
+            <option value="0">Any</option>
+            <option value="95">Above 95%</option>
+            <option value="90">Above 90%</option>
+            <option value="85">Above 85%</option>
+            <option value="80">Above 80%</option>
+            <option value="75">Above 75%</option>
+            <option value="70">Above 70%</option>
+            <option value="65">Above 65%</option>
+            <option value="60">Above 60%</option>
+            <option value="55">Above 55%</option>
+            <option value="50">Above 50%</option>
+          </select>
+        </label>
+        <button class="primary" id="rankBtn">Rank candidates</button>
+      </div>
+      <div id="recruiterOut" class="out" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
