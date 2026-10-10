@@ -1,0 +1,6 @@
+job_id,title,company,description,required_skills,experience,education
+1,Machine Learning Intern,TechAI,"Looking for candidates with Python, machine learning, scikit-learn, pandas, NumPy and basic deep learning knowledge.","pandas, scikit-learn, machine learning, deep learning, python, numpy",0.0,machine learning
+2,NLP Intern,LanguageLabs,"Seeking candidates with Python, NLP, natural language processing, NLTK, TensorFlow and experience with text processing or deep learning.","tensorflow, python, nlp, deep learning",0.0,
+3,Java Backend Intern,CodeWorks,"Looking for candidates with Java, JDBC, SQL, databases, object-oriented programming and backend development knowledge.","sql, java",0.0,
+4,Data Science Intern,DataLabs,"Candidates should have Python, SQL, pandas, NumPy, scikit-learn, data analysis and machine learning skills.","sql, pandas, scikit-learn, machine learning, python, numpy",0.0,machine learning
+5,Deep Learning Intern,NeuralTech,"Seeking candidates with Python, TensorFlow, Keras, deep learning, neural networks and model training experience.","tensorflow, python, deep learning",0.0,artificial intelligence
